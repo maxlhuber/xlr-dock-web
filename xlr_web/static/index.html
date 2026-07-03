@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>XLR Dock</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Elgato</p>
+          <h1>XLR Dock</h1>
+        </div>
+        <div class="status-pill" id="connectionState">
+          <span class="status-dot"></span>
+          <span id="connectionText">Verbinde</span>
+        </div>
+      </header>
+
+      <section class="workspace">
+        <aside class="device-panel">
+          <div class="device-mark">
+            <span>XLR</span>
+          </div>
+          <dl class="device-list">
+            <div>
+              <dt>Geraet</dt>
+              <dd id="deviceName">-</dd>
+            </div>
+            <div>
+              <dt>Firmware</dt>
+              <dd id="firmwareVersion">-</dd>
+            </div>
+            <div>
+              <dt>wIndex</dt>
+              <dd id="windex">-</dd>
+            </div>
+          </dl>
+          <div class="meter-stack" aria-label="Pegel">
+            <div class="meter-row">
+              <span>L</span>
+              <div class="meter-track"><span id="meterLeft"></span></div>
+            </div>
+            <div class="meter-row">
+              <span>R</span>
+              <div class="meter-track"><span id="meterRight"></span></div>
+            </div>
+          </div>
+        </aside>
+
+        <section class="control-grid">
+          <article class="control-panel mix-panel">
+            <div class="panel-head">
+              <div>
+                <p class="label">Monitor-Mix</p>
+                <strong id="mixValue">--%</strong>
+              </div>
+              <div class="split-label">
+                <span>PC</span>
+                <span>Mic</span>
+              </div>
+            </div>
+            <input id="mixSlider" class="range mix-range" type="range" min="0" max="100" value="50" />
+            <div class="quick-row">
+              <button type="button" data-mix="0">PC</button>
+              <button type="button" data-mix="50">50/50</button>
+              <button type="button" data-mix="100">Mic</button>
+            </div>
+          </article>
+
+          <article class="control-panel">
+            <div class="panel-head">
+              <div>
+                <p class="label">Hardware-Gain</p>
+                <strong id="gainValue">-- dB</strong>
+              </div>
+            </div>
+            <input id="gainSlider" class="range" type="range" min="0" max="80" value="0" step="0.5" />
+          </article>
+
+          <article class="control-panel">
+            <div class="panel-head">
+              <div>
+                <p class="label">Kopfhoerer</p>
+                <strong id="headphoneValue">-- dB</strong>
+              </div>
+            </div>
+            <input
+              id="headphoneSlider"
+              class="range"
+              type="range"
+              min="-80"
+              max="0"
+              value="-12"
+              step="0.5"
+            />
+          </article>
+
+          <article class="control-panel switch-panel">
+            <button id="muteButton" type="button" class="mode-button danger">
+              <span class="mode-icon">M</span>
+              <span>Mute</span>
+            </button>
+            <button id="lowZButton" type="button" class="mode-button">
+              <span class="mode-icon">Z</span>
+              <span>Low-Z</span>
+            </button>
+            <button id="clipguardButton" type="button" class="mode-button">
+              <span class="mode-icon">C</span>
+              <span>Clipguard</span>
+            </button>
+          </article>
+        </section>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

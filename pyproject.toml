@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xlr-dock-web"
+version = "0.1.0"
+description = "Lokale Web-App und Windows-Tray-App fuer das Elgato XLR Dock"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "maxlhuber" }]
+
+[project.scripts]
+xlr-dock-control = "xlr_control.cli:main"
+xlr-dock-web = "xlr_web.app:main"
+xlr-dock-tray = "xlr_web.tray:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["xlr_control*", "xlr_web*"]
+
+[tool.setuptools.package-data]
+xlr_web = ["static/*"]
