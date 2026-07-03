@@ -79,5 +79,11 @@ Syntaxcheck:
 python -m compileall xlr_control xlr_web
 ```
 
+Release-EXE bauen:
+
+```powershell
+.\scripts\build-windows-release.ps1
+```
+
 Die Linux-Anbindung soll spaeter dieselbe API verwenden, aber mit libusb,
 PipeWire/PipeWeaver und Autostart auf CachyOS.
